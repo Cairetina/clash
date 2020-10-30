@@ -44,9 +44,7 @@ func addrToMetadata(rawAddress string) (addr *C.Metadata, err error) {
 }
 
 func tcpKeepAlive(c net.Conn) {
-	// Disable tcp keep alive to save battery
-	// if tcp, ok := c.(*net.TCPConn); ok {
-	// 	tcp.SetKeepAlive(true)
-	// 	tcp.SetKeepAlivePeriod(30 * time.Second)
-	// }
+	if tcp, ok := c.(*net.TCPConn); ok {
+	 	tcp.SetKeepAlive()
+	}
 }
