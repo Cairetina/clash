@@ -54,6 +54,6 @@ func handleRedir(conn net.Conn) {
 		conn.Close()
 		return
 	}
-	conn.(*net.TCPConn).SetKeepAlive(true)
+	conn.(*net.TCPConn).SetKeepAlive(false)
 	tunnel.Add(inbound.NewSocket(target, conn, C.REDIR))
 }
