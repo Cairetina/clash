@@ -43,7 +43,7 @@ func urlToMetadata(rawURL string) (addr C.Metadata, err error) {
 		}
 	}
 
-	addr = C.Metadata{
+	addr = C.Metadata {
 		AddrType: C.AtypDomainName,
 		Host:     u.Hostname(),
 		DstIP:    nil,
@@ -53,11 +53,9 @@ func urlToMetadata(rawURL string) (addr C.Metadata, err error) {
 }
 
 func tcpKeepAlive(c net.Conn) {
-	// Disable tcp keep alive to save battery
-	// if tcp, ok := c.(*net.TCPConn); ok {
-	// 	tcp.SetKeepAlive(true)
-	// 	tcp.SetKeepAlivePeriod(30 * time.Second)
-	// }
+	if tcp, ok := c.(*net.TCPConn); ok {
+	 	tcp.SetKeepAlive(false)
+	}
 }
 
 func getClientSessionCache() tls.ClientSessionCache {
