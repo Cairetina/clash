@@ -43,7 +43,7 @@ func urlToMetadata(rawURL string) (addr C.Metadata, err error) {
 		}
 	}
 
-	addr = C.Metadata {
+	addr = C.Metadata{
 		AddrType: C.AtypDomainName,
 		Host:     u.Hostname(),
 		DstIP:    nil,
