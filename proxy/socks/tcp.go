@@ -59,7 +59,7 @@ func HandleSocks(conn net.Conn) {
 		return
 	}
 	if c, ok := conn.(*net.TCPConn); ok {
-		c.SetKeepAlive(true)
+		c.SetKeepAlive(false)
 	}
 	if command == socks5.CmdUDPAssociate {
 		defer conn.Close()
